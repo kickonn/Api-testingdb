@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
+
+    <context:annotation-config/>
+    <context:property-placeholder location="classpath:locators/*.properties" ignore-resource-not-found="true"/>
+
+    <bean id="jsonHelper" class="appmanager.util.json.JSONHelper" scope="prototype"/>
+
+    <bean id="ApiPage" class="pages.ApiPage"/>
+    <bean id="AdactinPage" class="pages.AdactinPage"/>
+    <bean id="DataBasePage" class="pages.databasePage"/>
+
+
+    <!-- Database connection bean classes which implements JdbcTemplate class-->
+    <bean id="myJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="SystemSource"/>
+    </bean>
+    <bean id="maintenanceDAO" class="dao.MaintenanceDAO">
+        <constructor-arg ref="myJdbcTemplate"/>
+    </bean>
+
+    <beans profile="DB1">
+        <bean id="SystemSource" class="org.apache.commons.dbcp2.BasicDataSource">
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/opencartdemo"/>
+            <property name="username" value="root"/>
+            <property name="password" value=""/>
+            <property name="initialSize" value="2"/>
+            <property name="maxTotal" value="10"/>
+        </bean>
+    </beans>
+
+</beans>
