@@ -28,7 +28,7 @@ import java.util.Comparator;
         monochrome = true,
         //
 //             dryRun = true,
-        tags={"@database"})
+        tags={"@Smoke123"})
 //        tags = {"@Adactin,@RestAPI"})
 
 
