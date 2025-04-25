@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.codec.binary.Base64;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 
@@ -11,6 +12,7 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import static appmanager.HelperBase.sleep;
@@ -36,8 +38,7 @@ public class ApplicationManager {
                 driver = new InternetExplorerDriver();
                 driver.manage().deleteAllCookies();
             } else if (browser.equals(BrowserType.CHROME)) {
-                  File file = new File(ExtentCucumberFormatter.outputDirectory + File.separator + "TestDocuments");
-                        file.mkdir();
+
                         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
                         chromePrefs.put("profile.default_content_settings.popups", 0);
                         chromePrefs.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1);
