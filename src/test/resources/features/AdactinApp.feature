@@ -11,10 +11,10 @@ Feature: Adactin
     Then User Books a hotel and validates hotel is booked successfully
     Examples:
       |username |password|
-      |demotesterr|tester|
+      |gouthamRaj|22G4O8|
 
 
-  @Smoke123
+  @Smoke
   Scenario Outline: Validate booked Itinerary page in adactin application
     Given User launches the adactin application
     When User logs into the application with "<username>" and "<password>"
@@ -23,9 +23,9 @@ Feature: Adactin
 
     Examples:
       |username |password|
-      |demotesterr|tester|
+      |gouthamRaj|22G4O8|
 
-  @Smoke123
+  @Smoke
   Scenario Outline: Validate search hotel page in adactin application
     Given User launches the adactin application
     When User logs into the application with "<username>" and "<password>"
@@ -33,6 +33,6 @@ Feature: Adactin
 
     Examples:
       |username |password|
-      |demotesterr|tester|
+      |gouthamRaj|22G4O8|
 
 
