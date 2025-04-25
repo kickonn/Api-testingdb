@@ -38,7 +38,7 @@ public class ApplicationManager {
                 driver = new InternetExplorerDriver();
                 driver.manage().deleteAllCookies();
             } else if (browser.equals(BrowserType.CHROME)) {
-
+                System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
                         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
                         chromePrefs.put("profile.default_content_settings.popups", 0);
                         chromePrefs.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1);
