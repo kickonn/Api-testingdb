@@ -44,15 +44,15 @@ public class ApplicationManager {
                         chromePrefs.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1);
                         chromePrefs.put("download.prompt_for_download", false);
                         ChromeOptions options = new ChromeOptions();
-                        options.addArguments("--headless");
+                       /// options.addArguments("--headless");
                         options.addArguments("window-size=1200x600");
                         options.addArguments("--no-sandbox");
                         options.addArguments("--disable-dev-shm-usage");
                         options.setExperimentalOption("prefs", chromePrefs);
 //                        WebDriverManager.chromedriver().setup();
-                        driver = WebDriverManager.chromedriver().capabilities(options).clearResolutionCache().clearDriverCache().create();
+//                        driver = WebDriverManager.chromedriver().capabilities(options).clearResolutionCache().clearDriverCache().create();
                         driver = new ChromeDriver(options);
-                        driver.manage().deleteAllCookies();
+//                        driver.manage().deleteAllCookies();
             } else if (browser.equals(BrowserType.EDGE)) {
                 //System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
                 driver = WebDriverManager.edgedriver().create();
