@@ -51,7 +51,7 @@ public class ApplicationManager {
                         options.setExperimentalOption("prefs", chromePrefs);
 //                        WebDriverManager.chromedriver().setup();
                         driver = WebDriverManager.chromedriver().capabilities(options).clearResolutionCache().clearDriverCache().create();
-  //                      driver = new ChromeDriver(options);
+                        driver = new ChromeDriver(options);
                         driver.manage().deleteAllCookies();
             } else if (browser.equals(BrowserType.EDGE)) {
                 //System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
